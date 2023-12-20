@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fbook</title>
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: sans-serif;
+        }
+        .header{
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            height: 70px;
+            background-color: #fff;
+            box-shadow: 0px 1px 3px #ccc;
+            position:sticky;
+            top:0;
+            z-index:99;
+        }
+        .header_left, .header_mid, .header_right{
+            display: flex;
+            align-items: center;
+        }
+        .header_left img{
+            width: 40px;
+        }
+        .header_left input{
+            height: 40px;
+            padding: 5px 10px;
+            border-radius: 25px;
+            background-color: #eee;
+            margin-left: 10px;
+            border: none;
+        }
+        .header_mid i{
+            font-size: 25px;
+            color: #333;
+        }
+        .header_mid a{
+            margin:0 20px;
+            padding: 10px;
+        }
+        .group i{
+            color: royalblue;
+        }
+        .header_mid .group{
+            border-bottom: 2px solid royalblue;
+        }
+        .header_right i{
+            color: #333;
+            font-size: 18px;
+        }
+        .header_right a{
+            padding: 10px 12px;
+            margin: 0 8px;
+            border-radius: 50%;
+            background-color: #ccc;
+        }
+        .main{
+            width: 100%;
+            display: flex;
+        }
+        .content_left{
+            width: 25%;
+            background-color: #fff;
+            padding: 0 32px;
+        }
+        .left1{
+            border-bottom: 2px solid #ccc;
+        }
+        .left1 > p{
+            font-size: 30px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .left1 input{
+            height: 25px;
+            width: 90%;
+            padding: 5px 10px;
+            border-radius: 25px;
+            background-color: #eee;
+            border: none;
+            margin: 20px 0;
+        }
+        .left1_myfeed{
+            width: 100%;
+            font-family: sans-serif;
+            display: flex;
+        }
+        .left1_myfeed i{
+            color: royalblue;
+            font-size: 25px;
+        }
+        .left1_myfeed p{
+            font-size: 25px;
+            font-weight: 500;
+            margin: 5px 0 5px 20px;
+        }
+        .left1_newfeed {
+            width: 90%;
+            background-color: #eee;
+            padding: 5px;
+            text-align: center;
+            color: rgb(25, 111, 140);
+            margin: 20px 0;
+            border-radius: 2px;
+        }
+        .left1_newfeed p{
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .left1_newfeed:hover{
+            background-color: #ccc;
+        }
+        .left2{
+            width: 100%;
+            margin: 20px 0;
+            border-bottom: 2px solid #ccc;
+        }
+        .left2 > p{
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+        .left2_group{
+            display: flex;
+            margin: 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .left2_group img{
+            width: 60px;
+            height: 50px;
+            border-radius: 5px;
+        }
+        .left2_namegroup{
+            height: 50px;
+            margin-left: 20px;
+            position: relative;
+        }
+        .namegroup{
+            font-size: 15px;
+            font-weight: 700;
+        }
+        .timegroup{
+            width: 250px;
+            font-size: 15px;
+            color: #147e1d;
+            position: absolute;
+            bottom: 0;
+        }
+        .content_right{
+            width: 75%;
+            padding: 30px 0;
+            background-color: #ccc;
+            display: flex;
+        }
+        .right_news{
+            margin-left: 50px;
+        }
+        .right_news > p{
+            font-size: 20px;
+            font-weight: 600;
+            color: rgb(117, 106, 110);
+            margin-bottom: 10px;
+        }
+        .item_news{
+            background-color: #fff;
+            width: 550px;
+            padding: 10px;
+            border-bottom: 5px solid #ccc;
+        }
+        .author{
+            display: flex;
+        }
+        .author img{
+            width: 50px;
+            height: 40px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .name_author > p{
+            font-size: 20px;
+            font-weight: 500;
+            color: #000;
+        }
+        .name_author div{
+            display: flex;
+            color: rgb(10, 100, 235);
+            font-size: 15px;
+        }
+        .name_author p{
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+        .news_text img{
+            width: 100%;
+            height: 300px;
+            margin: 5px 0;
+        }
+        .contact{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .icon i{
+            font-size: 20px;
+            color: rgb(203, 123, 10);
+            margin-right: 10px;
+        }
+        
+        .icon{
+            width: 100px;
+            padding: 10px 20px;
+            background-color: #fff;
+            border: 1px solid #eee; 
+            display: flex;
+            align-items: center;
+        }
+
+        .icon:hover{
+            background-color: #ccc;
+        }
+        .icon:hover i{
+            color: #fff;
+        }
+        .right_suggest{
+            margin-left: 10px;
+            padding: 20px;
+        }
+        .suggest{
+            padding: 20px;
+            background-color: #fff;
+            width: 300px;
+            margin-top: 10px;
+        }
+        .suggest p{
+            font-size: 15px;
+            color: #333;
+        }
+        .suggest_group{
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid gray;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .suggest_group img{
+            width: 100%;
+            height: 100px;
+        }
+        .button_suggest_group button{
+            padding: 5px 10px;
+            color: #fff;
+            background-color: #147e1d;
+            margin: 10px 0 10px 0;
+            border-radius: 6px;
+        }
+        .ontop{
+            background-color: rgb(95, 228, 124);
+            padding: 7px 10px;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+        }
+        .ontop i{
+            font-size: 15px;
+            color: #fff;
+        }
+        .group{
+            background-color: #eee;
+
+
+        }
+        .level1{
+            display: none;
+        }
+        .level0{
+            position: relative;
+        }
+        .item_level1{
+            width: 300px;
+            border-bottom: 1px solid gray;
+        }
+        .item_level2  :hover{
+            background: #ccc;
+            width: fit-content;
+            height: 50px;
+         }
+         </style>
+</head>
+<body>
+    <div class="header" id="top">
+        <div class="header_left">
+            <img src="./images/facebook.png" alt="Logo">
+            <input type="text" placeholder="Search Fbook.....">
+        </div>
+        <div class="header_mid">
+            <a href="index.html" class="active">
+                <i class="fa fa-home"></i>
+            </a>
+
+            <a href="page.html">
+                <i class="fa fa-user-friends"></i>
+            </a>
+
+            <a href="#">
+                <i class="fa fa-play-circle"></i>
+            </a>
+
+            <a href="#" class="group">
+                <i class="fa fa-users"></i>
+            </a>
+        </div>
+        <div class="header_right">
+            <span class="profile"></span>
+
+            <a href="#">
+                <i class="fa fa-bell"></i>
+            </a>
+
+            <a href="#">
+                <i class="fas fa-ellipsis-h"></i>
+            </a>
+        </div>
+
+    </div>
+    <div class="main">
+        <div class="content_left">
+            <div class="left1">
+                <p>Group</p>
+                <input type="text" placeholder="Search Group....">
+                <div class="left1_myfeed">
+                    <p><i class="fa-solid fa-calendar-days"></i></p>
+                    <p>My feed</p>
+                </div>
+                <div class="left1_newfeed">
+                    <p>+Add new my feeds</p>
+                </div>
+            </div>
+            <div class="left2">
+                <p>Group you joined</p>
+                <div class="group">
+                    <p class="level0"><i></i></p>
+                    <div class="level1">
+                        <div class="level1">
+                            <div class="item_level1">
+                                <p>My group</p>
+                                <div class="level2">
+                                    <div class="item_level2">
+                                        <div><p>My group 1</p></div>
+                                        <div class="item_level2">
+                                            <p>My group 2</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                    
+                        
+                    </div>
+                </div>
+                </div>
+                
+                
+                <div class="left2_group">
+                    <img src="./images/Anh_doraemon.png" alt="">
+                    <div class="left2_namegroup">
+                        <p class="namegroup">Hội hâm mộ Doraemon và những người bạn</p>
+                        <p class="timegroup">Last activity: 20 mins ago</p>
+                    </div>
+                </div>
+                <div class="left2_group">
+                    <img src="./images/Anh_NTPTW.png" alt="">
+                    <div class="left2_namegroup">
+                        <p class="namegroup">NTPTW Thứ 4</p>
+                        <p class="timegroup">Last activity: 1 mins ago</p>
+                    </div>
+                </div>
+                <div class="left2_group">
+                    <img src="./images/Anh_DC Legends.jpg" alt="">
+                    <div class="left2_namegroup">
+                        <p class="namegroup">DC Legends Việt Nam</p>
+                        <p class="timegroup">Last activity: 1 year ago</p>
+                    </div>
+                </div>
+                <div class="left2_group">
+                    <img src="./images/Anh_CLB.jpg" alt="">
+                    <div class="left2_namegroup">
+                        <p class="namegroup">CLB cùng học Cơ sở dữ liệu</p>
+                        <p class="timegroup">Last activity: 3 hrs ago</p>
+                    </div>
+                </div>
+                <div class="left2_group">
+                    <img src="./images/Arenaofvalor.jpg" alt="">
+                    <div class="left2_namegroup">
+                        <p class="namegroup">Arena of Valor</p>
+                        <p class="timegroup">Last activity: 3 months ago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content_right">
+            <div class="right_news">
+                <p>Last activity</p>
+                <div class="item_news">
+                    <div class="author">
+                        <img src="./images/Anh_doraemon.png" alt="">
+                        <div class="name_author">
+                            <p>Hội hâm mộ Doraemon và những người bạn</p>
+                            <div>
+                                <p>Xuân Thịnh</p>
+                                <p>1 day ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news_text">
+                        <p>Phần phim mới về Doraemon sẽ được khởi chiếu vào năm 2023 dưới định dạng 3D.</p>
+                        <img src="./images/Anh_doraemon2.jpg" alt="">
+                        <div class="contact">
+                            <div class="like icon">
+                                <p><i class="fa-sharp fa-solid fa-thumbs-up"></i></p>
+                                <p>Like</p>
+                            </div>
+                            <div class="comment icon">
+                                <p><i class="fa-regular fa-comments"></i></p>
+                                <p>Comment</p>
+                            </div>
+                            <div class="share icon">
+                                <p><i class="fa-sharp fa-solid fa-share-from-square"></i></p>
+                                <p>Share</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item_news">
+                    <div class="author">
+                        <img src="./images/Anh_NTPTW.png" alt="">
+                        <div class="name_author">
+                            <p>NTPTW Thứ 4</p>
+                            <div>
+                                <p>Minh Quang</p>
+                                <p>1 week ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news_text">
+                        <p>Tập trung ở P606C</p>
+                        <img src="./images/Anh_lop_hoc.jpg" alt="">
+                        <div class="contact">
+                            <div class="like icon">
+                                <p><i class="fa-sharp fa-solid fa-thumbs-up"></i></p>
+                                <p>Like</p>
+                            </div>
+                            <div class="comment icon">
+                                <p><i class="fa-regular fa-comments"></i></p>
+                                <p>Comment</p>
+                            </div>
+                            <div class="share icon">
+                                <p><i class="fa-sharp fa-solid fa-share-from-square"></i></p>
+                                <p>Share</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item_news">
+                    <div class="author">
+                        <img src="./images/Anh_DC Legends.jpg" alt="">
+                        <div class="name_author">
+                            <p>DC Legends Việt Nam</p>
+                            <div>
+                                <p>Lona Bauer</p>
+                                <p>1 day ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news_text">
+                        <p>How to beat this team? Guy?</p>
+                        <img src="./images/Anh_game.jpg" alt="">
+                        <div class="contact">
+                            <div class="like icon">
+                                <p><i class="fa-sharp fa-solid fa-thumbs-up"></i></p>
+                                <p>Like</p>
+                            </div>
+                            <div class="comment icon">
+                                <p><i class="fa-regular fa-comments"></i></p>
+                                <p>Comment</p>
+                            </div>
+                            <div class="share icon">
+                                <p><i class="fa-sharp fa-solid fa-share-from-square"></i></p>
+                                <p>Share</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right_suggest">
+                <div class="suggest">
+                   <p>Group we suggest you:</p>
+                   <p>May be you like:</p>
+                   <div class="suggest_group">
+                        <img src="./images/Anh_highlands.jpg" alt="">
+                        <h3>890k members</h3>
+                        <p>Private group</p>
+                        <div class="button_suggest_group">
+                            <button type="submit">Join group</button>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ontop">
+        <a href="#"><i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+    </div>
+    
+</body>
+</html>

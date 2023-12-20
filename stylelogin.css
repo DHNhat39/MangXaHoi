@@ -1,0 +1,67 @@
+body{
+    background: url('./images/fbook.jpg');
+   
+    
+
+}
+#wrapper{
+    min-height: 100vh;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+}
+#form-login{
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.866);
+    flex-grow: 1;
+    padding: 30px 30px 40px;
+    box-shadow: 0px 0px 17px 2px  rgba(0, 0, 0, 0.8); 
+}
+.form-heading{
+    font-size: 45px;
+    color: rgb(59, 45, 250);
+    text-align: center;
+    margin-bottom: 30px;
+}
+.form-group{
+    border-bottom: 1px solid #000;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    display: flex;
+
+}
+.form-group i{
+    color: rgb(88, 86, 86);
+    font-size: 14px;
+    padding-right: 10px ;
+}
+.form-input{
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: #090606;
+    flex-grow: 1;
+
+}
+.form-input::placeholder{
+    color: #1c101080;
+}
+#eye i{
+    padding-right: 0%;
+    cursor: pointer;
+}
+.form-submit{
+    background: transparent;
+    border: 1px solid #150f0f;
+    color: rgb(41, 123, 239);
+    width: 100%;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    box-shadow: 0px 0px 10px 1px  rgba(0, 0, 0, 0.8); 
+    transition: 0.20s ease-in-out;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.form-submit:hover{
+    border: 2px solid #54a0ff;
+}
